@@ -7,7 +7,12 @@
         <h3>{{result.email}}</h3>
       </div>
       <div class="col-sm-8">
-        <app-home></app-home>
+        <app-search-form [returnedSearchText]="searchText"></app-search-form>
+        <ng-container *ngIf="additionalInfo.length > 0">
+          <ng-container *ngFor="let info of additionalInfo">
+            <app-additional-search [config]="info"></app-additional-search>
+          </ng-container>
+        </ng-container>
       </div>
     </div>
   </div>

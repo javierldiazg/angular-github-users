@@ -1,0 +1,19 @@
+<ng-container *ngIf="result">
+  <div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-12">
+        <ng-container *ngFor="let info of result">
+          <ng-container *ngIf="info.name">
+            <h3>{{info.name}}</h3>
+          </ng-container>
+          <ng-container *ngIf="info.description">
+            <p>{{info.description}}</p>
+          </ng-container>
+          <ng-container *ngIf="info.stargazers_count">
+              <p>{{info.stargazers_count}}</p>
+            </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</ng-container>

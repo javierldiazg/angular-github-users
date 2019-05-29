@@ -7,13 +7,17 @@ const httpOptions = {
 };
 
 @Injectable()
-export class UserService {
+export class SearchService {
   baseUrl: String = ' https://api.github.com/users/';
 
   constructor(private _http: HttpClient) { }
 
   getUser(searchText) {
     const url = this.baseUrl + searchText;
+    return this._http.get(url);
+  }
+
+  getData(url) {
     return this._http.get(url);
   }
 

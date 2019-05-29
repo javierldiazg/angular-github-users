@@ -1,30 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { SearchService } from '../../services/search.service';
 import { AttributesSearch } from './search.interface';
 
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.css'],
-  providers: [UserService]
+  styleUrls: ['./search.component.scss'],
+  providers: [SearchService]
 })
 export class SearchComponent implements OnInit {
   AttributesSearch: Array<AttributesSearch>;
+  searchText = '';
   result = {};
+  additionalInfo = [];
 
   constructor(protected _router: Router,
     protected route: ActivatedRoute,
-    protected _userService: UserService) { }
+    protected _searchService: SearchService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
       if (params['searchText'] !== undefined && params['searchText'] !== '') {
-        this._userService.getUser(params['searchText']).subscribe(
+        this.searchText = params['searchText'];
+        this._searchService.getUser(params['searchText']).subscribe(
           resp => {
             this.result = resp;
-            console.log(resp);
+            if (resp['repos_url']) {
+              this.additionalInfo.push({
+                id: 'repos',
+                url: resp['repos_url']
+              });
+            }
           }
         );
       }
