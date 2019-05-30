@@ -2,6 +2,12 @@
 
 $primaryColor: #ac53f2;
 
+h3 {
+    &.sub-title {
+        color: $primaryColor;
+    }
+}
+
 button {
     &.search-button {
         background-color: $primaryColor;

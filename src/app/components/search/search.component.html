@@ -1,12 +1,14 @@
 <ng-container *ngIf="result; else notFound">
-  <div class="container-fluid text-center">
-    <div class="row content">
-      <div class="col-sm-4">
+  <div class="container">
+    <div class="row">
+      <div class="col col-lg-4">
         <img src="{{result.avatar_url}}" class="img-fluid" alt="Responsive image">
         <h2>{{result.name}}</h2>
         <h3>{{result.email}}</h3>
+        <h6>{{result.followers}}</h6>
+        <h6>{{result.following}}</h6>
       </div>
-      <div class="col-sm-8">
+      <div class="col col-lg-8">
         <app-search-form [returnedSearchText]="searchText"></app-search-form>
         <ng-container *ngIf="additionalInfo.length > 0">
           <ng-container *ngFor="let info of additionalInfo">
@@ -18,5 +20,5 @@
   </div>
 </ng-container>
 <ng-template #notFound>
-  <p>User not found :(</p>
+  <h3 class="sub-title">User not found :(</h3>
 </ng-template>

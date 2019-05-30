@@ -26,6 +26,7 @@ export class SearchComponent implements OnInit {
         this.searchText = params['searchText'];
         this._searchService.getUser(params['searchText']).subscribe(
           resp => {
+            console.log(resp);
             this.result = resp;
             if (resp['repos_url']) {
               this.additionalInfo.push({
