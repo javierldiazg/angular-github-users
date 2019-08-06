@@ -9,6 +9,7 @@ import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchFormComponent } from './components/search-form/search-form.component';
 import { AdditionalSearchComponent } from './components/additional-search/additional-search.component';
+import { ButtonComponent } from './components/button/button.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { AdditionalSearchComponent } from './components/additional-search/additi
     SearchComponent,
     HomeComponent,
     SearchFormComponent,
-    AdditionalSearchComponent
+    AdditionalSearchComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
